@@ -1,29 +1,49 @@
-git廖雪峰的教程非常不错
-工作区是一个仓库，工作区下面的.git文件（隐藏文件）是一个版本库，包括stage暂存区和master主分支
+# 参考教程
+git廖雪峰的教程
+# .git文件
+工作区是一个仓库，工作区下面的.git文件（隐藏文件）是一个版本库，包括stage暂存区和master主分支。
 git add xxx，将xxx放到暂存区。可以连续add多个文件。如果不add到暂存区，commit时是不会提交这次变化的。
-git commit -m "comment content"    将stage中的内容提交到master分支,并写下这次提交的评论
-git reset --hard HEAD^  版本回退到HEAD之前的分支(再之前的是HEAD^^，再之前的HEAD)。HEAD是master中的版本指针.
-git reset --hard xxxxx  版本回退（也可以前进到删除过的版本）到xxxx，其中xxx是版本号，是一个很长的hash值。这个值可以在git reflog中翻到历史，可以在git log查到当前各个状态的各个commit版本值。
-git reset HEAD "filename". 将暂存区的文件回退到工作区。即如果使用git status查看暂存区内有文件，会同时提示：“使用 "git reset HEAD <文件>..." 以取消暂存”
-git checkout -- "filename" 丢弃工作区filename的修改
-撤销更改的总结
+# git commit -m "comment content"    
+将stage中的内容提交到master分支,并写下这次提交的评论
+# git reset --hard HEAD^  
+版本回退到HEAD之前的分支(再之前的是HEAD^^，再之前的HEAD)。HEAD是master中的版本指针.
+# git reset --hard xxxxx  
+版本回退（也可以前进到删除过的版本）到xxxx，其中xxx是版本号，是一个很长的hash值。这个值可以在git reflog中翻到历史，可以在git log查到当前各个状态的各个commit版本值。
+# git reset HEAD "filename". 
+将暂存区的文件回退到工作区。即如果使用git status查看暂存区内有文件，会同时提示：“使用 "git reset HEAD <文件>..." 以取消暂存”
+# git checkout -- "filename" 
+丢弃工作区filename的修改
+# 撤销更改的总结
 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
 
-git status 查看git的状态：是否有新建文件、修改文件;上述文件是否需要add到暂存器。该命令同时可以查看当前分支。
-git log:查看每次commit的记录，按Q退出。
-git reflog:查看每次指令记录
-git diff查看尚未暂存的文件更新了哪些部分
-git diff --staged查看已经暂存起来的文件(staged)和上次提交时的快照之间(HEAD)的差异
-git diff HEAD 显示工作版本(Working tree)和HEAD的差别
-git diff SHA1 SHA2 比较两个历史版本之间的差异
-git branch xxx（在master下执行） 新建一个xxx的分支
-git checkout master/xxx 转换分支
-git merge xxx(在master分支下执行) 合并xxx分支到master
-git branch 查看当前分支
-git branch -d b2(在master下执行)，删除b2分支（合并之后可能就没有用了）
-git log --graph：可以看到分支图
+# git status 
+查看git的状态：是否有新建文件、修改文件;上述文件是否需要add到暂存器。该命令同时可以查看当前分支。
+# git log
+查看每次commit的记录，按Q退出。
+# git reflog
+查看每次指令记录
+# git diff
+查看尚未暂存的文件更新了哪些部分
+# git diff --staged
+查看已经暂存起来的文件(staged)和上次提交时的快照之间(HEAD)的差异
+# git diff HEAD 
+显示工作版本(Working tree)和HEAD的差别
+# git diff SHA1 SHA2 
+比较两个历史版本之间的差异
+# git branch xxx（在master下执行） 
+新建一个xxx的分支
+# git checkout master/xxx 
+转换分支
+# git merge xxx(在master分支下执行) 
+合并xxx分支到master
+# git branch 
+查看当前分支
+# git branch -d b2(在master下执行)
+删除b2分支（合并之后可能就没有用了）
+# git log --graph
+可以看到分支图
 
 # git stash 
 保存当前分支
